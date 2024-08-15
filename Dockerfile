@@ -12,4 +12,4 @@ COPY --from=builder /test-app /test-app
 
 EXPOSE 8081
 
-CMD ["/argo-azure-devops"]
+CMD ["/test-app"]
