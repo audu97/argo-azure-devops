@@ -4,8 +4,8 @@ metadata:
   name: test-app-service
 spec:
   ports:
-    - port: 8081
-      targetPort: 8082
+    - port: 8082
+      targetPort: 8081
   selector:
     app: test-app
   
