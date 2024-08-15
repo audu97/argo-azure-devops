@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  dockerHub: 'docker-hub-service'  # Replace with your service connection name
+  imageName: 'ephraimaudu/azure-argo-dev'
+  imageTag: '$(Build.BuildId)'
+
+stages:
+  - stage: Build
+    displayName: build and push image to docker hub
+    jobs:
+      - job: Build
+        displayName: build
+        pool: 
+          name: myagent
+        steps:
+        - task: Docker@2
+          inputs:
+            containerRegistry: $(dockerHub)
+            repository: $(imageName)
+            command: 'buildAndPush'
+            Dockerfile: '**/Dockerfile' 
+            tags: |
+              $(imageTag)
+  
