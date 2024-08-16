@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-container
-          image: ephraimaudu/azure-argo-dev:10
+          image: ephraimaudu/azure-argo-dev:9
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
