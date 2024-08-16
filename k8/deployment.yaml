@@ -5,7 +5,7 @@ metadata:
   labels:
     app: test-app
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: test-app
@@ -22,4 +22,9 @@ spec:
             - containerPort: 80
               protocol: TCP
       restartPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
       
