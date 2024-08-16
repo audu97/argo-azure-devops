@@ -15,7 +15,7 @@ resources:
 - repo: self
 
 variables:
-  dockerHub: 'docker-hub-service'  # Replace with your service connection name
+  dockerHub: 'docker-hub-service'
   imageName: 'ephraimaudu/azure-argo-dev'
   imageTag: '$(Build.BuildId)'
 
